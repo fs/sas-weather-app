@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-// this code should lint well
+// this code should  lint well
 
 const App = () => {
   return (
