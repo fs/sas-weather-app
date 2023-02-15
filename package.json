@@ -24,7 +24,7 @@
     "prettier": "^2.8.4"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
+    "*.{js,ts,tsx,jsx}": [
       "eslint --quiet --cache --fix"
     ],
     "*.{json,js,ts,jsx,tsx,html}": [
