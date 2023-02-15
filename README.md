@@ -12,10 +12,6 @@ The things our app can do to help you:
 - Provides details about the temperature and weather condition
 - (WIP: More Features Coming Soon)
 
-## Cloning Repo
-
-`git clone git@github.com:fs/sas-weather-app.git`
-
 ## How to start the App:
 
 `yarn install --frozen-lockfile`;
