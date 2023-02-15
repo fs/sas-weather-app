@@ -1,6 +1,6 @@
 import { TestDiv } from "./TestComponent/styled"
 
-export const TestComponent=(props)=>{
+const TestComponent=(props)=>{
     return(
         <TestDiv>
             Hello world
