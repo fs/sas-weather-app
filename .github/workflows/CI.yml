@@ -26,4 +26,5 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: yarn install --frozen--lockfile
       - run: yarn run eslint src
