@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
+import TestComponent from "./components/TestComponent";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         >
           Learn React
         </a>
+        <TestComponent />
       </header>
     </div>
   );
