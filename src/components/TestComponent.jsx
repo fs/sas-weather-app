@@ -1,11 +1,7 @@
-import { TestDiv } from "./TestComponent/styled"
+import { TestDiv } from "./TestComponent/styled";
 
-const TestComponent=(props)=>{
-    return(
-        <TestDiv>
-            Hello world
-        </TestDiv>
-    )
-}
+const TestComponent = () => {
+  return <TestDiv>Hello world 2</TestDiv>;
+};
 
-export default TestComponent
+export default TestComponent;
