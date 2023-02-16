@@ -1,9 +1,8 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import TestComponent from "./components/TestComponent";
 
-import TestComponent from './components/TestComponent';
-
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
@@ -19,10 +18,10 @@ function App() {
         >
           Learn React
         </a>
-        <TestComponent/>
+        <TestComponent />
       </header>
     </div>
   );
-}
+};
 
 export default App;
