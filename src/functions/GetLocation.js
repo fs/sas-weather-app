@@ -14,7 +14,7 @@ const getLocation = async () => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   }).catch(setGeoOnError);
 
-  return position.coords;
+  return position.coords ? position.coords : position;
 };
 
 export default getLocation;
