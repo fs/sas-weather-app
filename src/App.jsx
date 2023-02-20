@@ -10,8 +10,13 @@ const App = () => {
     setlongitude(position.coords.longitude);
   };
 
+  const Error = () => {
+    setLatitude("Not available");
+    setlongitude("Not available");
+  };
+
   const GetLocation = () => {
-    navigator.geolocation.getCurrentPosition(Success);
+    navigator.geolocation.getCurrentPosition(Success, Error);
   };
 
   useEffect(() => {
