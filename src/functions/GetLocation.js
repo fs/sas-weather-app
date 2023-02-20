@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const setGeoOnsuccess = (position) => {
+const setGeoOnSuccess = (position) => {
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
 };
@@ -10,7 +10,7 @@ const setGeoOnError = () => {
 };
 
 const getLocation = () => {
-  navigator.geolocation.getCurrentPosition(setGeoOnsuccess, setGeoOnError);
+  navigator.geolocation.getCurrentPosition(setGeoOnSuccess, setGeoOnError);
 };
 
 export default getLocation;
