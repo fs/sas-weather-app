@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import TestComponent from "./components/TestComponent";
-import GetLocation from "./functions/GetLocation";
+import getLocation from "./functions/GetLocation";
 
 const App = () => {
   useEffect(() => {
-    GetLocation();
+    getLocation();
   }, []);
 
   return (
