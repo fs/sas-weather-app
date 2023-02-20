@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import TestComponent from "./components/TestComponent";
 import getLocation from "./functions/GetLocation";
 
@@ -11,9 +10,7 @@ const App = () => {
     console.log(coords);
   };
 
-  useEffect(() => {
-    getCoords();
-  }, []);
+  getCoords();
 
   return (
     <div data-testid="test-weather-container">
