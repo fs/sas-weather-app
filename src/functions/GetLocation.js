@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 const setGeoOnSuccess = (position) => {
   console.log(position.coords.latitude);
@@ -5,12 +6,15 @@ const setGeoOnSuccess = (position) => {
 };
 
 const setGeoOnError = () => {
-  console.log("Not available");
-  console.log("Not available");
+  return "Not available";
 };
 
-const getLocation = () => {
-  navigator.geolocation.getCurrentPosition(setGeoOnSuccess, setGeoOnError);
+const getLocation = async () => {
+  const position = await new Promise((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  }).catch(setGeoOnError);
+
+  return position.coords;
 };
 
 export default getLocation;
