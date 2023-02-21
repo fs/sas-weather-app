@@ -1,14 +1,37 @@
+import { useEffect, useState } from "react";
 import { TestDiv } from "./TestComponent/styled";
-// import fetchWeather from "../api/fetchWeather";
+import fetchWeather from "../api/fetchWeather";
 
 const TestComponent = () => {
-  return <TestDiv>Hello world 2</TestDiv>;
+  const [weather, setWeather] = useState({});
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const latitude = 48.8567;
+      const longitude = 2.3508;
+      try {
+        const result = await fetchWeather({ latitude, longitude });
+        setWeather(result.data);
+      } catch (e) {
+        setError(e);
+      }
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      {error ? (
+        <div>Error: {error.message}</div>
+      ) : (
+        <div>
+          <TestDiv>Hello world 2</TestDiv>
+          <p>Weather: {JSON.stringify(weather)}</p>
+        </div>
+      )}
+    </div>
+  );
 };
-
-// const latitude = 48.8567;
-// const longitude = 2.3508;
-
-// const result = await fetchWeather({ latitude, longitude });
-// console.log(result);
 
 export default TestComponent;
