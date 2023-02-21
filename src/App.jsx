@@ -1,17 +1,10 @@
 import TestComponent from "./components/TestComponent";
-import getLocation from "./functions/GetLocation";
+import useGeolocation from "./hooks/useGeolocation";
 
 const App = () => {
-  let coords = "test";
-
-  const getCoords = async () => {
-    coords = await getLocation();
-    // eslint-disable-next-line no-console
-    console.log(coords);
-  };
-
-  getCoords();
-
+  const location = useGeolocation();
+  // eslint-disable-next-line no-console
+  console.log("🚀 ~ file: App.jsx:7 ~ App ~ location:", location);
   return (
     <div data-testid="test-weather-container">
       <TestComponent />
