@@ -1,16 +1,7 @@
-import { useContext } from "react";
-import LocationContext from "../context";
 import { TestDiv } from "./TestComponent/styled";
 
 const TestComponent = () => {
-  const location = useContext(LocationContext);
-  const { latitude, longitude } = location;
-
-  return (
-    <TestDiv>
-      {latitude} {longitude}
-    </TestDiv>
-  );
+  return <TestDiv>Hello world 2</TestDiv>;
 };
 
 export default TestComponent;
