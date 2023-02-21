@@ -27,7 +27,7 @@ const TestComponent = () => {
       ) : (
         <div>
           <TestDiv>Hello world 2</TestDiv>
-          <p>Weather: {JSON.stringify(weather)}</p>
+          <p>Weather information: {JSON.stringify(weather)}</p>
         </div>
       )}
     </div>
