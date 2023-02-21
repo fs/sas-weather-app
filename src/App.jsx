@@ -1,4 +1,3 @@
-// import TestComponent from "./components/TestComponent";
 import BackComponent from "./components/BackComponent/index";
 
 const App = () => {
