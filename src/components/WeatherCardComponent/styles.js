@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from "styled-components";
 
 export const WeatherCard = styled.div`
@@ -17,3 +16,5 @@ export const WeatherCard = styled.div`
   bottom: 0;
   left: 0;
 `;
+
+export default WeatherCard;

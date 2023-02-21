@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import styled from "styled-components";
 
 export const BackgroundColor = styled.div`
@@ -9,3 +8,5 @@ export const BackgroundColor = styled.div`
   height: 100vh;
   width: 100%;
 `;
+
+export default BackgroundColor;
