@@ -1,4 +1,4 @@
-import { SearchDiv, SearchInput } from "./styled";
+import { SearchDiv, SearchInput } from "./styles";
 
 const SearchBar = () => {
   return (

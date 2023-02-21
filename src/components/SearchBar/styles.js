@@ -12,6 +12,8 @@ const SearchDiv = styled.div`
   border-radius: 18px;
   display: flex;
   flex-direction: row;
+
+  margin-top: 39px;
 `;
 
 const SearchInput = styled.input`
