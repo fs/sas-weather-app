@@ -19,13 +19,12 @@ const SearchDiv = styled.div`
 const SearchInput = styled.input`
   background: none;
   border: none;
-  border-radius: 18px;
   margin-left: 26px;
   margin: 12px 0px 12px 26px;
-  :focus {
+  /* :focus {
     border: none;
     outline: none;
-  }
+  } */
 `;
 
 export { SearchDiv, SearchInput };
