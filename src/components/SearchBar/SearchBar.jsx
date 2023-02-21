@@ -3,7 +3,7 @@ import { SearchDiv, SearchInput } from "./styles";
 const SearchBar = () => {
   return (
     <SearchDiv>
-      <SearchInput />
+      <SearchInput placeholder="Search" />
     </SearchDiv>
   );
 };

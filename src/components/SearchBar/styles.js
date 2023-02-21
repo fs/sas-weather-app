@@ -25,6 +25,10 @@ const SearchInput = styled.input`
     border: none;
     outline: none;
   } */
+
+  ::placeholder {
+    color: rgba(242, 251, 255, 0.7);
+  }
 `;
 
 export { SearchDiv, SearchInput };
