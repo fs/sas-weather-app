@@ -1,7 +1,12 @@
+import SearchBar from "../SearchBar";
 import { WeatherCard } from "./styles";
 
 const WeatherCardComponent = () => {
-  return <WeatherCard />;
+  return (
+    <WeatherCard>
+      <SearchBar />
+    </WeatherCard>
+  );
 };
 
 export default WeatherCardComponent;

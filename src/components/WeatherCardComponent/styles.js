@@ -9,12 +9,11 @@ export const WeatherCard = styled.div`
     rgba(239, 255, 253, 0) 100%
   );
   border-radius: 85px;
-  position: absolute;
   margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export default WeatherCard;
