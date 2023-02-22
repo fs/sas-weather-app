@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
 export const WeatherCard = styled.div`
-  min-width: 1280px;
-  min-height: 720px;
+  height: 720px;
   background: linear-gradient(
     252.44deg,
     rgba(239, 255, 253, 0.7) 0%,
     rgba(239, 255, 253, 0) 100%
   );
   border-radius: 85px;
+  backdrop-filter: blur(20px);
   position: relative;
-  margin: 35px 50px;
+  @media only screen and (min-width: 1080px) {
+    margin: 130px 180px 180px 180px;
+  }
+  @media only screen and (min-width: 1840px) {
+    margin: 180px 313px 180px 327px;
+  }
 `;
 
 export default WeatherCard;
