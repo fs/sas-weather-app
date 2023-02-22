@@ -9,7 +9,6 @@ export const WeatherCard = styled.div`
     rgba(239, 255, 253, 0) 100%
   );
   border-radius: 85px;
-
   margin: auto;
 
   display: flex;
