@@ -1,7 +1,7 @@
 const sunnyTheme = {
   pictogramColor: "#EB534E",
   fontColor: "#1B1C1E",
-  backgroundColor: "#EAE4CA",
+  backgroundColor: "#712B75",
   searchBarColor: "#F5EEDA",
 };
 
