@@ -1,9 +1,9 @@
-import TestComponent from "./components/TestComponent";
+import BackComponent from "./components/BackComponent/index";
 
 const App = () => {
   return (
     <div data-testid="test-weather-container">
-      <TestComponent />
+      <BackComponent />
     </div>
   );
 };
