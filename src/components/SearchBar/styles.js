@@ -20,10 +20,11 @@ const SearchInput = styled.input`
   border: none;
   margin-left: 26px;
   margin: 12px 0px 12px 26px;
-  /* :focus {
+
+  :focus {
     border: none;
     outline: none;
-  } */
+  }
 
   flex-grow: 1;
 
@@ -32,4 +33,9 @@ const SearchInput = styled.input`
   }
 `;
 
-export { SearchDiv, SearchInput };
+const SearchIconContainer = styled.div`
+  margin: 13px 26px 14px 10px;
+  cursor: pointer;
+`;
+
+export { SearchDiv, SearchInput, SearchIconContainer };
