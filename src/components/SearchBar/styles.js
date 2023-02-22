@@ -12,7 +12,6 @@ const SearchDiv = styled.div`
   border-radius: 18px;
   display: flex;
   flex-direction: row;
-
   margin-top: 39px;
 `;
 
@@ -25,6 +24,8 @@ const SearchInput = styled.input`
     border: none;
     outline: none;
   } */
+
+  flex-grow: 1;
 
   ::placeholder {
     color: rgba(242, 251, 255, 0.7);
