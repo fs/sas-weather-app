@@ -1,6 +1,6 @@
 import LocationContext from "./context";
-import TestComponent from "./components/TestComponent";
 import useGeolocation from "./hooks/useGeolocation";
+import BackComponent from "./components/BackComponent/index";
 import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 
 const App = () => {
@@ -11,9 +11,10 @@ const App = () => {
   return (
     <LocationContext.Provider value={location}>
       <div data-testid="test-weather-container">
-        <TestComponent />
+        <BackComponent>
+          <CurrentWeather />
+        </BackComponent>
       </div>
-      <CurrentWeather />
     </LocationContext.Provider>
   );
 };

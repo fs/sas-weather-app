@@ -1,26 +1,21 @@
 import { useContext, useEffect, useState } from "react";
-import WeatherContainer from "../WeatherContainer/WeatherContainer";
 import fetchWeather from "../../api/fetchWeather";
 import LocationContext from "../../context";
+import WeatherCardComponent from "../WeatherCardComponent";
 
 const CurrentWeather = () => {
-  const [weather, setWeather] = useState();
+  const [response, setResponse] = useState({ status: 404 });
   const { latitude, longitude } = useContext(LocationContext);
-
   const getWeather = async () => {
-    setWeather(await fetchWeather({ latitude, longitude }));
+    setResponse(await fetchWeather({ latitude, longitude }));
   };
 
   useEffect(() => {
     // eslint-disable-next-line no-console
-    console.log(latitude, longitude);
     getWeather();
   }, [latitude, longitude]);
 
-  // eslint-disable-next-line no-console
-  console.log(weather);
-
-  return <WeatherContainer props={weather} />;
+  return <WeatherCardComponent response={response} />;
 };
 
 export default CurrentWeather;
