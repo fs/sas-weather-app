@@ -2,25 +2,30 @@ import styled from "styled-components";
 
 export const WeatherCard = styled.div`
   height: 720px;
+  margin: auto;
   background: linear-gradient(
     252.44deg,
     rgba(239, 255, 253, 0.7) 0%,
     rgba(239, 255, 253, 0) 100%
   );
   border-radius: 85px;
-  backdrop-filter: blur(20px);
-
-  @media only screen and (min-width: 1080px) {
-    margin: 130px 180px 180px 180px;
+  @media only screen and (min-width: 500px) {
+    margin: 20px 100px;
+  @media only screen and (min-width: 930px) {
+    margin: 80px 220px;
+  @media only screen and (min-width: 930px) {
+    margin: 80px 220px;
+  @media only screen and (min-width: 1130px) {
+    margin: 100px 220px;
   }
   @media only screen and (min-width: 1840px) {
     margin: 180px 313px 180px 327px;
   }
-  margin: auto;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  vertical-align: middle;
   color: ${(props) => props.theme.fontColor};
 `;
 
