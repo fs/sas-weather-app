@@ -16,6 +16,12 @@ export const WeatherCard = styled.div`
   @media only screen and (min-width: 1840px) {
     margin: 180px 313px 180px 327px;
   }
+  margin: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: ${(props) => props.theme.fontColor};
 `;
 
 export default WeatherCard;

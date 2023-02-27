@@ -1,50 +1,38 @@
 const sunnyTheme = {
-  pictogramColor: "#EB534E",
-  fontColor: "#1B1C1E",
-  backgroundColor: "#EAE4CA",
-  searchBarColor: "#F5EEDA",
+  backgroundColor: "#42C2FF",
+  fontColor: "#000000",
 };
 
 const rainyTheme = {
-  pictogramColor: "#8FAFC6",
-  fontColor: "#FEEFE2",
-  backgroundColor: "#233947",
-  searchBarColor: "#2C4856",
+  backgroundColor: "#A8AAC4",
+  fontColor: "#000000",
 };
 
 const cloudyTheme = {
-  pictogramColor: "#9A5859",
-  fontColor: "#233947",
-  backgroundColor: "#D4D9D3",
-  searchBarColor: "#DDDFDC",
-};
-
-const windyTheme = {
-  pictogramColor: "#EAE4CA",
-  fontColor: "#D4D9D3",
-  backgroundColor: "#9A5859",
-  searchBarColor: "#AA6367",
+  backgroundColor: "#A8AAC4",
+  fontColor: "#000000",
 };
 
 const thunderTheme = {
-  pictogramColor: "#9A5859",
-  fontColor: "#EAE4CA",
-  backgroundColor: "#1B1C1E",
-  searchBarColor: "#292A2C",
+  backgroundColor: "#A8AAC4",
+  fontColor: "#000000",
 };
 
 const snowyTheme = {
-  pictogramColor: "#EFE8DF",
-  fontColor: "#233947",
-  backgroundColor: "#8FAFC6",
-  searchBarColor: "#9BBED2",
+  backgroundColor: "#6BA7CC",
+  fontColor: "#000000",
+};
+
+const nightTheme = {
+  backgroundColor: "#712B75",
+  fontColor: "#F2FBFFB2",
 };
 
 export {
   sunnyTheme,
-  windyTheme,
   rainyTheme,
   thunderTheme,
   snowyTheme,
   cloudyTheme,
+  nightTheme,
 };
