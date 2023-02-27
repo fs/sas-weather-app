@@ -9,7 +9,7 @@ export const WeatherCard = styled.div`
   );
   border-radius: 85px;
   backdrop-filter: blur(20px);
-  position: relative;
+
   @media only screen and (min-width: 1080px) {
     margin: 130px 180px 180px 180px;
   }

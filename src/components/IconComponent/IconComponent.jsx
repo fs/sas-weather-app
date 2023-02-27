@@ -1,5 +1,5 @@
 import WeatherIcon from "../../img/Rainy.png";
-import { BackgroundIcon } from "./styles";
+import { BackgroundIcon } from "./styled";
 
 const BackComponent = () => {
   return (

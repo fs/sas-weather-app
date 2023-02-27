@@ -1,5 +1,5 @@
 import SearchBar from "../SearchBar";
-import { WeatherCard } from "./styles";
+import { WeatherCard } from "./styled";
 
 const WeatherCardComponent = () => {
   return (
