@@ -1,5 +1,12 @@
+/* eslint-disable react/self-closing-comp */
 import SearchBar from "../SearchBar";
-import { WeatherCard } from "./styles";
+import {
+  WeatherBigText,
+  WeatherCard,
+  WeatherInfo,
+  WeatherSmallText,
+  WeatherTextBox,
+} from "./styles";
 
 const WeatherCardComponent = ({ response }) => {
   // eslint-disable-next-line no-console
@@ -8,7 +15,25 @@ const WeatherCardComponent = ({ response }) => {
     return (
       <WeatherCard>
         <SearchBar />
-        <p>{response.data.current.cloud}</p>
+        <WeatherInfo>
+          <WeatherTextBox>
+            <WeatherBigText>
+              {response.data.location.country}, {response.data.location.name}
+            </WeatherBigText>
+            <WeatherBigText>{response.data.current.temp_c}°C</WeatherBigText>
+            <WeatherBigText>
+              {response.data.current.condition.text}
+            </WeatherBigText>
+          </WeatherTextBox>
+          <WeatherTextBox>
+            <WeatherSmallText>
+              Humidity: {response.data.current.humidity}%
+            </WeatherSmallText>
+            <WeatherSmallText>
+              Wind Speed: {response.data.current.wind_kph} km/h
+            </WeatherSmallText>
+          </WeatherTextBox>
+        </WeatherInfo>
       </WeatherCard>
     );
   }
