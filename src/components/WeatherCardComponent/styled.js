@@ -11,10 +11,13 @@ export const WeatherCard = styled.div`
   border-radius: 85px;
   @media only screen and (min-width: 500px) {
     margin: 20px 100px;
+  }
   @media only screen and (min-width: 930px) {
     margin: 80px 220px;
+  }
   @media only screen and (min-width: 930px) {
     margin: 80px 220px;
+  }
   @media only screen and (min-width: 1130px) {
     margin: 100px 220px;
   }
