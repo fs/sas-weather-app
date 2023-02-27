@@ -1,8 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import IconComponent from "../IconComponent";
 import WeatherCardComponent from "../WeatherCardComponent";
-import { BackgroundColor } from "./styles";
+import { BackgroundColor } from "./styled";
 import { sunnyTheme } from "../../global/themes";
 
 const BackComponent = () => {
@@ -11,7 +10,6 @@ const BackComponent = () => {
   return (
     <ThemeProvider theme={theme}>
       <BackgroundColor>
-        <IconComponent />
         <WeatherCardComponent />
       </BackgroundColor>
     </ThemeProvider>

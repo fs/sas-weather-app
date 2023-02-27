@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const WeatherCard = styled.div`
   height: 720px;
   margin: auto;
+  position: relative;
   background: linear-gradient(
     252.44deg,
     rgba(239, 255, 253, 0.7) 0%,
@@ -30,6 +31,7 @@ export const WeatherCard = styled.div`
   align-items: center;
   vertical-align: middle;
   color: ${(props) => props.theme.fontColor};
+  /* backdrop-filter: blur(20px); */
 `;
 
 export default WeatherCard;
