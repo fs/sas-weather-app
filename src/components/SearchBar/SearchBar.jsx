@@ -1,5 +1,5 @@
 import { Search } from "react-bootstrap-icons";
-import { SearchDiv, SearchInput, SearchIconContainer } from "./styles";
+import { SearchDiv, SearchInput, SearchIconContainer } from "./styled";
 
 const SearchBar = () => {
   return (
