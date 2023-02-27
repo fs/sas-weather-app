@@ -1,6 +1,6 @@
-import IconComponent from "../IconComponent";
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
+import IconComponent from "../IconComponent";
 import WeatherCardComponent from "../WeatherCardComponent";
 import { BackgroundColor } from "./styles";
 import { sunnyTheme } from "../../global/themes";
@@ -15,7 +15,6 @@ const BackComponent = () => {
         <WeatherCardComponent />
       </BackgroundColor>
     </ThemeProvider>
-
   );
 };
 
