@@ -31,7 +31,7 @@ export const WeatherCard = styled.div(
     width: 680px;
   }
 
-  @media only screen and (min-width: 1130px) {
+  @media only screen and (min-width: 1280px) {
     margin: 130px auto;
     width: 990px;
   }
