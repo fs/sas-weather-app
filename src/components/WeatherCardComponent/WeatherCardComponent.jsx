@@ -11,6 +11,27 @@ import {
 const WeatherCardComponent = ({ data }) => {
   const { status, country, city, tempC, condition, humidity, windKph } = data;
 
+  if (status === "ok") {
+    return (
+      <WeatherCard>
+        <SearchBar />
+        <WeatherInfo>
+          <WeatherTextBox>
+            <WeatherBigText>
+              {country}, {city}
+            </WeatherBigText>
+            <WeatherBigText>{tempC}°C</WeatherBigText>
+            <WeatherBigText>{condition}</WeatherBigText>
+          </WeatherTextBox>
+          <WeatherTextBox>
+            <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
+            <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
+          </WeatherTextBox>
+        </WeatherInfo>
+      </WeatherCard>
+    );
+  }
+
   return (
     <WeatherCard>
       <SearchBar />
@@ -22,15 +43,6 @@ const WeatherCardComponent = ({ data }) => {
             (status === "loading" && (
               <WeatherBigText>Загрузка погоды</WeatherBigText>
             ))}
-          <WeatherBigText>
-            {country}, {city}
-          </WeatherBigText>
-          <WeatherBigText>{tempC}°C</WeatherBigText>
-          <WeatherBigText>{condition}</WeatherBigText>
-        </WeatherTextBox>
-        <WeatherTextBox>
-          <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
-          <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
         </WeatherTextBox>
       </WeatherInfo>
     </WeatherCard>
