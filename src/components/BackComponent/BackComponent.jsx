@@ -1,7 +1,7 @@
 import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import WeatherCardComponent from "../WeatherCardComponent";
-import { BackgroundColor } from "./styles";
+import { BackgroundColor } from "./styled";
 import { sunnyTheme } from "../../global/themes";
 
 const BackComponent = () => {
