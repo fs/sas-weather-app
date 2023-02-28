@@ -1,25 +1,37 @@
 import { useContext, useEffect, useState } from "react";
 import fetchWeather from "../../api/fetchWeather";
 import LocationContext from "../../context";
-import { BackgroundColor } from "./styles";
+import { BackgroundColor, ErrorMessageBox } from "./styles";
 import WeatherCardComponent from "../WeatherCardComponent";
 
 const BackComponent = () => {
-  const [response, setResponse] = useState({ status: 404 });
+  const [data, setData] = useState();
   const { latitude, longitude } = useContext(LocationContext);
+  const [error, setError] = useState(true);
 
   const getWeather = async () => {
-    setResponse(await fetchWeather({ latitude, longitude }));
+    try {
+      const response = await fetchWeather({ latitude, longitude });
+      setData(response.data);
+      setError(false);
+    } catch (err) {
+      setError(true);
+    }
   };
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
     getWeather();
   }, [latitude, longitude]);
 
   return (
     <BackgroundColor>
-      <WeatherCardComponent response={response} />
+      {error ? (
+        <ErrorMessageBox>
+          <p>Ошибка получения данных</p>
+        </ErrorMessageBox>
+      ) : (
+        <WeatherCardComponent data={data} />
+      )}
     </BackgroundColor>
   );
 };
