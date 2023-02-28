@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
+import { ThemeProvider } from "styled-components";
+import { sunnyTheme } from "../../global/themes";
 import fetchWeather from "../../api/fetchWeather";
 import LocationContext from "../../context";
-import BackgroundColor from "./styles";
+import BackgroundColor from "./styled";
 import WeatherCardComponent from "../WeatherCardComponent";
 
 const BackComponent = () => {
+  const [theme] = useState(sunnyTheme);
   const [data, setData] = useState({
     status: "loading",
     country: null,
@@ -44,9 +47,11 @@ const BackComponent = () => {
   }, [latitude, longitude]);
 
   return (
-    <BackgroundColor>
-      <WeatherCardComponent data={data} />
-    </BackgroundColor>
+    <ThemeProvider theme={theme}>
+      <BackgroundColor>
+        <WeatherCardComponent data={data} />
+      </BackgroundColor>
+    </ThemeProvider>
   );
 };
 

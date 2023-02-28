@@ -1,12 +1,13 @@
 /* eslint-disable react/self-closing-comp */
 import SearchBar from "../SearchBar";
+import IconComponent from "../IconComponent";
 import {
   WeatherBigText,
   WeatherCard,
   WeatherInfo,
   WeatherSmallText,
   WeatherTextBox,
-} from "./styles";
+} from "./styled";
 
 const WeatherCardComponent = ({ data }) => {
   const { status, country, city, tempC, condition, humidity, windKph } = data;
@@ -31,7 +32,6 @@ const WeatherCardComponent = ({ data }) => {
       </WeatherCard>
     );
   }
-
   return (
     <WeatherCard>
       <SearchBar />
@@ -45,6 +45,7 @@ const WeatherCardComponent = ({ data }) => {
             ))}
         </WeatherTextBox>
       </WeatherInfo>
+      <IconComponent />
     </WeatherCard>
   );
 };
