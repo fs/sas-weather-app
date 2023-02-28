@@ -9,25 +9,28 @@ import {
 } from "./styles";
 
 const WeatherCardComponent = ({ data }) => {
-  // eslint-disable-next-line no-console
+  const { status, country, city, tempC, condition, humidity, windKph } = data;
+
   return (
     <WeatherCard>
       <SearchBar />
       <WeatherInfo>
         <WeatherTextBox>
+          {(status === "error" && (
+            <WeatherBigText>Ошибка получения данных</WeatherBigText>
+          )) ||
+            (status === "loading" && (
+              <WeatherBigText>Загрузка погоды</WeatherBigText>
+            ))}
           <WeatherBigText>
-            {data.location.country}, {data.location.name}
+            {country}, {city}
           </WeatherBigText>
-          <WeatherBigText>{data.current.temp_c}°C</WeatherBigText>
-          <WeatherBigText>{data.current.condition.text}</WeatherBigText>
+          <WeatherBigText>{tempC}°C</WeatherBigText>
+          <WeatherBigText>{condition}</WeatherBigText>
         </WeatherTextBox>
         <WeatherTextBox>
-          <WeatherSmallText>
-            Humidity: {data.current.humidity}%
-          </WeatherSmallText>
-          <WeatherSmallText>
-            Wind Speed: {data.current.wind_kph} km/h
-          </WeatherSmallText>
+          <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
+          <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
         </WeatherTextBox>
       </WeatherInfo>
     </WeatherCard>

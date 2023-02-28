@@ -1,21 +1,51 @@
 import { useContext, useEffect, useState } from "react";
 import fetchWeather from "../../api/fetchWeather";
 import LocationContext from "../../context";
-import { BackgroundColor, ErrorMessageBox } from "./styles";
+import BackgroundColor from "./styles";
 import WeatherCardComponent from "../WeatherCardComponent";
 
 const BackComponent = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState({
+    status: "loading",
+    country: null,
+    city: null,
+    tempC: null,
+    humidity: null,
+    condition: null,
+    windKph: null,
+  });
   const { latitude, longitude } = useContext(LocationContext);
-  const [error, setError] = useState(true);
+
+  const handleSuccess = (response) => {
+    setData({
+      status: "ok",
+      country: response.data.location.country,
+      city: response.data.location.name,
+      tempC: response.data.current.temp_c,
+      condition: response.data.current.condition.text,
+      humidity: response.data.current.humidity,
+      windKph: response.data.current.wind_kph,
+    });
+  };
+
+  const handleError = () => {
+    setData({
+      status: "ok",
+      country: null,
+      city: null,
+      tempC: null,
+      condition: null,
+      humidity: null,
+      windKph: null,
+    });
+  };
 
   const getWeather = async () => {
     try {
       const response = await fetchWeather({ latitude, longitude });
-      setData(response.data);
-      setError(false);
+      handleSuccess(response);
     } catch (err) {
-      setError(true);
+      handleError();
     }
   };
 
@@ -25,13 +55,7 @@ const BackComponent = () => {
 
   return (
     <BackgroundColor>
-      {error ? (
-        <ErrorMessageBox>
-          <p>Ошибка получения данных</p>
-        </ErrorMessageBox>
-      ) : (
-        <WeatherCardComponent data={data} />
-      )}
+      <WeatherCardComponent data={data} />
     </BackgroundColor>
   );
 };
