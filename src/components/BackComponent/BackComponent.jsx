@@ -13,39 +13,29 @@ const BackComponent = () => {
     humidity: null,
     condition: null,
     windKph: null,
+    error: null,
   });
   const { latitude, longitude } = useContext(LocationContext);
 
-  const handleSuccess = (response) => {
+  const handleError = (error) => {
     setData({
-      status: "ok",
-      country: response.data.location.country,
-      city: response.data.location.name,
-      tempC: response.data.current.temp_c,
-      condition: response.data.current.condition.text,
-      humidity: response.data.current.humidity,
-      windKph: response.data.current.wind_kph,
-    });
-  };
-
-  const handleError = () => {
-    setData({
-      status: "ok",
+      status: "error",
       country: null,
       city: null,
       tempC: null,
       condition: null,
       humidity: null,
       windKph: null,
+      error,
     });
   };
 
   const getWeather = async () => {
     try {
       const response = await fetchWeather({ latitude, longitude });
-      handleSuccess(response);
+      setData(response);
     } catch (err) {
-      handleError();
+      handleError(err);
     }
   };
 
