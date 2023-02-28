@@ -2,10 +2,10 @@ import { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import WeatherCardComponent from "../WeatherCardComponent";
 import { BackgroundColor } from "./styled";
-import { rainyTheme } from "../../global/themes";
+import { rainyTheme, commonStyles } from "../../global/themes";
 
 const BackComponent = () => {
-  const [theme] = useState(rainyTheme);
+  const [theme] = useState({ ...rainyTheme, ...commonStyles });
 
   return (
     <ThemeProvider theme={theme}>
