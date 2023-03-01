@@ -36,8 +36,8 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
       condition: null,
       humidity: null,
       windKph: null,
-      error: response.statusText,
     },
+    error: response.statusText,
   };
 };
 
