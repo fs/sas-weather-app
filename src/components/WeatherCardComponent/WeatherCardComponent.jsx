@@ -1,50 +1,14 @@
 /* eslint-disable react/self-closing-comp */
 import SearchBar from "../SearchBar";
 import IconComponent from "../IconComponent";
-import {
-  WeatherBigText,
-  WeatherCard,
-  WeatherInfo,
-  WeatherSmallText,
-  WeatherTextBox,
-} from "./styled";
+import { WeatherCard } from "./styled";
+import WeatherTextBoxComponent from "../WeatherTextBoxComponent";
 
-const WeatherCardComponent = ({ data }) => {
-  const { status, country, city, tempC, condition, humidity, windKph } = data;
-
-  if (status === "ok") {
-    return (
-      <WeatherCard>
-        <SearchBar />
-        <WeatherInfo>
-          <WeatherTextBox>
-            <WeatherBigText>
-              {country}, {city}
-            </WeatherBigText>
-            <WeatherBigText>{tempC}°C</WeatherBigText>
-            <WeatherBigText>{condition}</WeatherBigText>
-          </WeatherTextBox>
-          <WeatherTextBox>
-            <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
-            <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
-          </WeatherTextBox>
-        </WeatherInfo>
-      </WeatherCard>
-    );
-  }
+const WeatherCardComponent = ({ weatherData }) => {
   return (
     <WeatherCard>
       <SearchBar />
-      <WeatherInfo>
-        <WeatherTextBox>
-          {(status === "error" && (
-            <WeatherBigText>Ошибка получения данных</WeatherBigText>
-          )) ||
-            (status === "loading" && (
-              <WeatherBigText>Загрузка погоды</WeatherBigText>
-            ))}
-        </WeatherTextBox>
-      </WeatherInfo>
+      <WeatherTextBoxComponent weatherData={weatherData} />
       <IconComponent />
     </WeatherCard>
   );

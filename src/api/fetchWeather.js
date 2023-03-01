@@ -14,26 +14,30 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
 
   if (response.status === 200) {
     return {
-      status: "ok",
+      status: "success",
       error: null,
-      country: response.data.location.country,
-      city: response.data.location.name,
-      tempC: response.data.current.temp_c,
-      condition: response.data.current.condition.text,
-      humidity: response.data.current.humidity,
-      windKph: response.data.current.wind_kph,
+      data: {
+        country: response.data.location.country,
+        city: response.data.location.name,
+        tempC: response.data.current.temp_c,
+        condition: response.data.current.condition.text,
+        humidity: response.data.current.humidity,
+        windKph: response.data.current.wind_kph,
+      },
     };
   }
 
   return {
     status: "error",
-    country: null,
-    city: null,
-    tempC: null,
-    condition: null,
-    humidity: null,
-    windKph: null,
-    error: response.status,
+    data: {
+      country: null,
+      city: null,
+      tempC: null,
+      condition: null,
+      humidity: null,
+      windKph: null,
+      error: response.statusText,
+    },
   };
 };
 
