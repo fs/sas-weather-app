@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { sunnyTheme } from "../../global/themes";
+import { rainyTheme, commonStyles } from "../../global/themes";
 import useCurrentWeather from "../../hooks/useCurrentWeather";
 import LocationContext from "../../context";
 import BackgroundColor from "./styled";
@@ -16,7 +16,7 @@ const initData = {
 };
 
 const BackComponent = () => {
-  const [theme] = useState(sunnyTheme);
+  const [theme] = useState({ ...rainyTheme, ...commonStyles });
   const [weatherData, setWeatherData] = useState({
     status: "init",
     data: initData,

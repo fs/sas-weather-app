@@ -28,6 +28,11 @@ const nightTheme = {
   fontColor: "#F2FBFFB2",
 };
 
+const commonStyles = {
+  bgWhite: "#EFFFFD",
+  bgSearch: "#F2FBFF",
+};
+
 export {
   sunnyTheme,
   rainyTheme,
@@ -35,4 +40,5 @@ export {
   snowyTheme,
   cloudyTheme,
   nightTheme,
+  commonStyles,
 };
