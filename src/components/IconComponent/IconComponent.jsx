@@ -1,12 +1,8 @@
 import WeatherIcon from "../../img/rainy.png";
 import { BackgroundIcon } from "./styled";
 
-const BackComponent = () => {
-  return (
-    <BackgroundIcon>
-      <img src={WeatherIcon} alt="weatherIcon" />
-    </BackgroundIcon>
-  );
+const IconComponent = () => {
+  return <BackgroundIcon src={WeatherIcon} alt="weatherIcon" />;
 };
 
-export default BackComponent;
+export default IconComponent;
