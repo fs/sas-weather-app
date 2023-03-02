@@ -22,7 +22,7 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <>
       <SearchDiv>
         <SearchInput
           placeholder="Search"
@@ -33,11 +33,11 @@ const SearchBar = () => {
         </SearchIconContainer>
       </SearchDiv>
       {error ? (
-        <div>Error: {error.message}</div>
+        <span>Error: {error.message}</span>
       ) : (
         <OptionsList options={options} />
       )}
-    </div>
+    </>
   );
 };
 

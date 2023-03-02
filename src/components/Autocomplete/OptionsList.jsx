@@ -1,11 +1,19 @@
+import { ListStyle, LiStyle } from "./styled";
+
 const OptionsList = ({ options }) => {
-  return options.length ? (
-    <ul>
-      {options.map((option) => {
-        return <li>{option.name}</li>;
-      })}
-    </ul>
-  ) : null;
+  return (
+    <ListStyle>
+      <ul>
+        {options.map((option) => {
+          return (
+            <LiStyle>
+              <li>{option.name}</li>
+            </LiStyle>
+          );
+        })}
+      </ul>
+    </ListStyle>
+  );
 };
 
 export default OptionsList;
