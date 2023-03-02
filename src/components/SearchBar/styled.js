@@ -25,29 +25,14 @@ const SearchDiv = styled.div(
 `,
 );
 
-const SearchInput = styled.input(
-  ({ theme }) => `
-  background: none;
-  border: none;
-  padding: 12px 0px 12px 26px;
-  color: ${theme.fontColor};
-
-  &:focus {
-    border: none;
-    outline: none;
-  }
-
+const SearchInput = styled.div`
   flex-grow: 1;
-
-  &::placeholder {
-    color: ${rgba(theme.fontColor, 0.7)};
-  }
-`,
-);
+  padding: 10px;
+`;
 
 const SearchIconContainer = styled.div`
   margin: 13px 26px 14px 10px;
   cursor: pointer;
 `;
 
-export { SearchDiv, SearchInput, SearchIconContainer };
+export { SearchDiv, SearchIconContainer, SearchInput };

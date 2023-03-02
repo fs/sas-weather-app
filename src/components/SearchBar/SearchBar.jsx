@@ -1,8 +1,8 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
+import Select from "react-select";
 import fetchAutocomplete from "../Autocomplete/Autocomplete";
-import { SearchDiv, SearchInput, SearchIconContainer } from "./styled";
-import OptionsList from "../Autocomplete/OptionsList";
+import { SearchDiv, SearchIconContainer, SearchInput } from "./styled";
 
 const SearchBar = () => {
   const [options, setOptions] = useState([]);
@@ -13,30 +13,32 @@ const SearchBar = () => {
       try {
         const result = await fetchAutocomplete(string);
         setError(null);
-        setOptions(result.data);
+        setOptions(result);
       } catch (e) {
         setError(e);
       }
     };
-    fetchData();
+    if (string !== "") {
+      fetchData();
+    }
   };
 
   return (
     <>
       <SearchDiv>
-        <SearchInput
-          placeholder="Search"
-          onChange={(e) => handleChange(e.target.value)}
-        />
+        <SearchInput>
+          <Select
+            placeholder="Search"
+            onInputChange={handleChange}
+            options={options}
+            unstyled
+          />
+        </SearchInput>
         <SearchIconContainer>
           <Search width={20} height={20} />
         </SearchIconContainer>
       </SearchDiv>
-      {error ? (
-        <span>Error: {error.message}</span>
-      ) : (
-        <OptionsList options={options} />
-      )}
+      {error ? <span>Error: {error.message}</span> : null}
     </>
   );
 };

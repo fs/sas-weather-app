@@ -11,7 +11,12 @@ const fetchAutocomplete = async (string) => {
   };
   const data = await apiInstance.get(searchUrl, { params });
 
-  return data;
+  const mappedData = data.data.map((element) => ({
+    label: `${element.name}, ${element.country}`,
+    value: `${element.name}, ${element.country}`,
+  }));
+
+  return mappedData;
 };
 
 export default fetchAutocomplete;
