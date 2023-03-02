@@ -17,8 +17,11 @@ const useCurrentWeather = (setWeatherData, latitude, longitude, initData) => {
         data: initData,
         error: null,
       });
-      const response = await fetchWeather({ latitude, longitude });
-      setWeatherData(response);
+
+      if (latitude !== null && longitude != null) {
+        const response = await fetchWeather({ latitude, longitude });
+        setWeatherData(response);
+      }
     } catch (err) {
       handleError(err);
     }
