@@ -31,7 +31,6 @@ const SearchBar = () => {
             placeholder="Search"
             onInputChange={handleChange}
             options={options}
-            unstyled
           />
         </SearchInput>
         <SearchIconContainer>

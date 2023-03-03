@@ -27,7 +27,6 @@ const SearchDiv = styled.div(
 
 const SearchInput = styled.div`
   flex-grow: 1;
-  padding: 10px;
 `;
 
 const SearchIconContainer = styled.div`
