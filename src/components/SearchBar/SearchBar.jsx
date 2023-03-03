@@ -1,15 +1,15 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
 import Select from "react-select";
-import fetchAutocomplete from "../Autocomplete/Autocomplete";
+import fetchAutocomplete from "../Autocomplete/autocomplete";
 import { SearchDiv, SearchIconContainer, SearchInput } from "./styled";
 
 const SearchBar = () => {
   const [options, setOptions] = useState([]);
   const [error, setError] = useState(null);
 
-  const handleChange = (string) => {
-    const fetchData = async () => {
+  const handleChange = async (string) => {
+    if (string !== "") {
       try {
         const result = await fetchAutocomplete(string);
         setError(null);
@@ -17,9 +17,6 @@ const SearchBar = () => {
       } catch (e) {
         setError(e);
       }
-    };
-    if (string !== "") {
-      fetchData();
     }
   };
 
@@ -37,7 +34,7 @@ const SearchBar = () => {
           <Search width={20} height={20} />
         </SearchIconContainer>
       </SearchDiv>
-      {error ? <span>Error: {error.message}</span> : null}
+      {error && <span>Error: {error.message}</span>}
     </>
   );
 };
