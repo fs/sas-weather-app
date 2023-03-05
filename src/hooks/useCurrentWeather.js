@@ -2,14 +2,6 @@ import { useEffect } from "react";
 import fetchWeather from "../api/fetchWeather";
 
 const useCurrentWeather = (setWeatherData, latitude, longitude, initData) => {
-  const handleError = (error) => {
-    setWeatherData({
-      status: "error",
-      data: initData,
-      error,
-    });
-  };
-
   const getWeather = async () => {
     try {
       setWeatherData({
@@ -18,12 +10,16 @@ const useCurrentWeather = (setWeatherData, latitude, longitude, initData) => {
         error: null,
       });
 
-      if (latitude !== null && longitude != null) {
+      if (latitude !== null && longitude !== null) {
         const response = await fetchWeather({ latitude, longitude });
         setWeatherData(response);
       }
     } catch (err) {
-      handleError(err);
+      setWeatherData({
+        status: "error",
+        data: initData,
+        error: err,
+      });
     }
   };
 
