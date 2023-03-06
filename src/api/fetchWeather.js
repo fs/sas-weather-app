@@ -16,7 +16,7 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
     return {
       status: "success",
       error: null,
-      data: {
+      weatherData: {
         country: response.data.location.country,
         city: response.data.location.name,
         tempC: response.data.current.temp_c,
@@ -29,7 +29,7 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
 
   return {
     status: "error",
-    data: {
+    weatherData: {
       country: null,
       city: null,
       tempC: null,
