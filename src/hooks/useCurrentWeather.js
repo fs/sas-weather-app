@@ -17,35 +17,29 @@ const useCurrentWeather = (latitude, longitude) => {
     error: null,
   });
 
-  const getWeather = async () => {
-    try {
-      setWeatherData({
-        status: "loading",
-        weatherData: initData,
-        error: null,
-      });
-
-      if (latitude !== null && longitude !== null) {
-        const response = await fetchWeather({ latitude, longitude });
-        setWeatherData(response);
-      } else {
-        setWeatherData({
-          status: "error",
-          weatherData: initData,
-          error: "Latitude and longitude are not defined",
-        });
-      }
-    } catch (err) {
-      setWeatherData({
-        status: "error",
-        weatherData: initData,
-        error: err,
-      });
-    }
-  };
-
   useEffect(() => {
-    getWeather();
+    if (latitude && longitude) {
+      const getWeather = async () => {
+        try {
+          setWeatherData({
+            status: "loading",
+            weatherData: initData,
+            error: null,
+          });
+
+          const response = await fetchWeather({ latitude, longitude });
+          setWeatherData(response);
+        } catch (error) {
+          setWeatherData({
+            status: "error",
+            weatherData: initData,
+            error,
+          });
+        }
+      };
+
+      getWeather();
+    }
   }, [latitude, longitude]);
 
   return weatherData;
