@@ -46,7 +46,7 @@ const mockSuccessfulResponse = {
 const mockSuccessResult = {
   status: "success",
   error: null,
-  data: {
+  weatherData: {
     country: mockSuccessfulResponse.data.location.country,
     city: mockSuccessfulResponse.data.location.name,
     tempC: mockSuccessfulResponse.data.current.temp_c,
@@ -58,7 +58,7 @@ const mockSuccessResult = {
 
 const mockErrorResponse = {
   status: 404,
-  statusTest: "Not Found",
+  statusText: "Not Found",
 };
 
 const mockErrorResult = {
