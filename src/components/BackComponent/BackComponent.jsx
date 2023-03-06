@@ -1,8 +1,8 @@
-import { ThemeProvider } from "styled-components";
 import { useState } from "react";
-import WeatherCardComponent from "../WeatherCardComponent";
-import { BackgroundColor } from "./styled";
+import { ThemeProvider } from "styled-components";
 import { rainyTheme, commonStyles } from "../../global/themes";
+import BackgroundColor from "./styled";
+import WeatherCardComponent from "../WeatherCardComponent";
 
 const BackComponent = () => {
   const [theme] = useState({ ...rainyTheme, ...commonStyles });

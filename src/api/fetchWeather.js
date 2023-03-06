@@ -10,8 +10,24 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
     q: `${latitude},${longitude}`,
   };
 
-  const data = await apiInstance.get(weatherUrl, { params });
-  return data;
+  const response = await apiInstance.get(weatherUrl, { params });
+
+  if (response.status !== 200) {
+    throw new Error(response.statusText);
+  }
+
+  return {
+    status: "success",
+    error: null,
+    weatherData: {
+      country: response.data.location.country,
+      city: response.data.location.name,
+      tempC: response.data.current.temp_c,
+      condition: response.data.current.condition.text,
+      humidity: response.data.current.humidity,
+      windKph: response.data.current.wind_kph,
+    },
+  };
 };
 
 export default fetchWeather;

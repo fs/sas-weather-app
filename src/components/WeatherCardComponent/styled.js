@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rgba } from "polished";
 
-export const WeatherCard = styled.div(
+const WeatherCard = styled.div(
   ({ theme }) => `
   position: relative;
   display: flex;
