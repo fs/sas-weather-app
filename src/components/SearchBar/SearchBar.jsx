@@ -1,22 +1,23 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
-import Select from "react-select";
-import fetchAutocomplete from "../Autocomplete/autocomplete";
+import AsyncSelect from "react-select/async";
+import fetchCities from "../../api/fetchCities";
 import { SearchDiv, SearchIconContainer, SearchInput } from "./styled";
 
 const SearchBar = () => {
-  const [options, setOptions] = useState([]);
   const [error, setError] = useState(null);
 
-  const handleChange = async (string) => {
-    if (string !== "") {
+  const loadOptions = async (inputValue, callback) => {
+    if (inputValue !== "") {
       try {
-        const result = await fetchAutocomplete(string);
+        const result = await fetchCities(inputValue);
         setError(null);
-        setOptions(result);
+        callback(result);
       } catch (e) {
         setError(e);
       }
+    } else {
+      callback([]);
     }
   };
 
@@ -24,11 +25,7 @@ const SearchBar = () => {
     <>
       <SearchDiv>
         <SearchInput>
-          <Select
-            placeholder="Search"
-            onInputChange={handleChange}
-            options={options}
-          />
+          <AsyncSelect placeholder="Search" loadOptions={loadOptions} />
         </SearchInput>
         <SearchIconContainer>
           <Search width={20} height={20} />
