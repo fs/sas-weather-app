@@ -1,4 +1,4 @@
-const mockResponse = {
+const mockSuccessfulResponse = {
   data: {
     location: {
       name: "Tyumen",
@@ -47,13 +47,36 @@ const mockSuccessResult = {
   status: "success",
   error: null,
   data: {
-    country: mockResponse.data.location.country,
-    city: mockResponse.data.location.name,
-    tempC: mockResponse.data.current.temp_c,
-    condition: mockResponse.data.current.condition.text,
-    humidity: mockResponse.data.current.humidity,
-    windKph: mockResponse.data.current.wind_kph,
+    country: mockSuccessfulResponse.data.location.country,
+    city: mockSuccessfulResponse.data.location.name,
+    tempC: mockSuccessfulResponse.data.current.temp_c,
+    condition: mockSuccessfulResponse.data.current.condition.text,
+    humidity: mockSuccessfulResponse.data.current.humidity,
+    windKph: mockSuccessfulResponse.data.current.wind_kph,
   },
 };
 
-export { mockResponse, mockSuccessResult };
+const mockErrorResponse = {
+  status: 404,
+  statusTest: "Not Found",
+};
+
+const mockErrorResult = {
+  status: "error",
+  data: {
+    country: null,
+    city: null,
+    tempC: null,
+    condition: null,
+    humidity: null,
+    windKph: null,
+  },
+  error: mockErrorResponse.statusText,
+};
+
+export {
+  mockSuccessfulResponse,
+  mockSuccessResult,
+  mockErrorResponse,
+  mockErrorResult,
+};
