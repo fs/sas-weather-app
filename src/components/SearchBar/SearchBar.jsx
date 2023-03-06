@@ -1,8 +1,7 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
-import AsyncSelect from "react-select/async";
 import fetchCities from "../../api/fetchCities";
-import { SearchDiv, SearchIconContainer, SearchInput } from "./styled";
+import { SearchDiv, SearchIconContainer, StyledSelect } from "./styled";
 
 const SearchBar = () => {
   const [error, setError] = useState(null);
@@ -24,9 +23,11 @@ const SearchBar = () => {
   return (
     <>
       <SearchDiv>
-        <SearchInput>
-          <AsyncSelect placeholder="Search" loadOptions={loadOptions} />
-        </SearchInput>
+        <StyledSelect
+          classNamePrefix="Select"
+          placeholder="Search"
+          loadOptions={loadOptions}
+        />
         <SearchIconContainer>
           <Search width={20} height={20} />
         </SearchIconContainer>

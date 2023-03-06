@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { rgba } from "polished";
+import AsyncSelect from "react-select/async";
 
 const SearchDiv = styled.div(
   ({ theme }) => `
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   height: 47px;
   background: linear-gradient(
     269deg,
@@ -25,8 +26,43 @@ const SearchDiv = styled.div(
 `,
 );
 
-const SearchInput = styled.div`
-  flex-grow: 1;
+const StyledSelect = styled(AsyncSelect)`
+  .Select__control {
+    border: none;
+    height: 47px;
+    cursor: pointer;
+    background-color: inherit;
+
+    @media only screen and (min-width: 600px) {
+      width: 400px;
+    }
+  }
+
+  .Select__control--is-focused {
+    box-shadow: none;
+    border-radius: 18px;
+  }
+
+  .Select__indicator-separator {
+    display: none;
+  }
+
+  .Select__dropdown-indicator {
+    display: none;
+  }
+
+  .Select__menu {
+    background: inherit;
+    border-radius: 18px;
+
+    @media only screen and (min-width: 600px) {
+      width: 465px;
+    }
+  }
+
+  .Select__option {
+    border-radius: 18px;
+  }
 `;
 
 const SearchIconContainer = styled.div`
@@ -34,4 +70,4 @@ const SearchIconContainer = styled.div`
   cursor: pointer;
 `;
 
-export { SearchDiv, SearchIconContainer, SearchInput };
+export { SearchDiv, SearchIconContainer, StyledSelect };
