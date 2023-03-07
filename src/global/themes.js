@@ -31,6 +31,8 @@ const nightTheme = {
 const commonStyles = {
   bgWhite: "#EFFFFD",
   bgSearch: "#F2FBFF",
+  colorBlack: "#000000",
+  colorWhite: "#ffffff",
 };
 
 export {
