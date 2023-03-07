@@ -36,8 +36,11 @@ const selectStyles = {
   }),
   option: (styles, { isFocused }) => ({
     ...styles,
-    backgroundColor: isFocused ? "#eee" : "#fff",
-    color: "#fff",
+    backgroundColor: isFocused
+      ? rgba(commonStyles.colorWhite, 0.6)
+      : rgba(commonStyles.colorWhite, 0.3),
+    color: commonStyles.colorBlack,
+    cursor: "pointer",
   }),
   indicatorsContainer: () => ({
     display: "none",
