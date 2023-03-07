@@ -7369,11 +7369,6 @@ mkdirp@~0.5.1:
   dependencies:
     minimist "^1.2.6"
 
-mock-geolocation@^1.0.11:
-  version "1.0.11"
-  resolved "https://registry.yarnpkg.com/mock-geolocation/-/mock-geolocation-1.0.11.tgz#2c7b99242a2c70dbecd317b392b30311722992c8"
-  integrity sha512-F/kvZfwuVnuPNHjHPuSVZlch8HnLwZgq7LVyp83PKSW3sXYm3tJhi/Z1gIHvnbY953YfAxiq5a7wFhgzX+qIkg==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -8734,11 +8729,6 @@ react-scripts@5.0.1:
     workbox-webpack-plugin "^6.4.1"
   optionalDependencies:
     fsevents "^2.3.2"
-
-react-testing-library@^8.0.1:
-  version "8.0.1"
-  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-8.0.1.tgz#b3dd43bce3fa88423cf0a23292fb819023c227cc"
-  integrity sha512-Gq4JC9r3prA4hYwo7afcbHHMFckO29+5Nrh2KblAEPuK/DWaU0bJE1vtpAgLhzhY9bBirmcgjjIHljHEwGAXKw==
 
 react@^18.2.0:
   version "18.2.0"
