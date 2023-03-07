@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const BackgroundColor = styled.div`
+const BackgroundColor = styled.div`
   background-color: ${(props) => props.theme.backgroundColor};
   position: fixed;
   height: 100vh;
