@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { rgba } from "polished";
+import AsyncSelect from "react-select/async";
 
 const SearchDiv = styled.div(
   ({ theme }) => `
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   height: 47px;
   background: linear-gradient(
     269deg,
@@ -25,29 +26,48 @@ const SearchDiv = styled.div(
 `,
 );
 
-const SearchInput = styled.input(
-  ({ theme }) => `
-  background: none;
-  border: none;
-  padding: 12px 0px 12px 26px;
-  color: ${theme.fontColor};
-
-  &:focus {
+const StyledSelect = styled(AsyncSelect)`
+  .Select__control {
     border: none;
-    outline: none;
+    height: 47px;
+    cursor: pointer;
+    background-color: inherit;
+
+    @media only screen and (min-width: 600px) {
+      width: 400px;
+    }
   }
 
-  flex-grow: 1;
-
-  &::placeholder {
-    color: ${rgba(theme.fontColor, 0.7)};
+  .Select__control--is-focused {
+    box-shadow: none;
+    border-radius: 18px;
   }
-`,
-);
+
+  .Select__indicator-separator {
+    display: none;
+  }
+
+  .Select__dropdown-indicator {
+    display: none;
+  }
+
+  .Select__menu {
+    background: inherit;
+    border-radius: 18px;
+
+    @media only screen and (min-width: 600px) {
+      width: 465px;
+    }
+  }
+
+  .Select__option {
+    border-radius: 18px;
+  }
+`;
 
 const SearchIconContainer = styled.div`
   margin: 13px 26px 14px 10px;
   cursor: pointer;
 `;
 
-export { SearchDiv, SearchInput, SearchIconContainer };
+export { SearchDiv, SearchIconContainer, StyledSelect };
