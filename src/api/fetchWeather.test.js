@@ -12,28 +12,28 @@ jest.mock("./apiInstance");
 
 describe("fetchWeather", () => {
   test("should fetch successful weather request", async () => {
-    const expectedLatitude = 57.141464;
-    const expectedLongitude = 65.576912;
+    const latitude = 57.141464;
+    const longitude = 65.576912;
 
     const params = {
       key: process.env.REACT_APP_WEATHER_API_KEY,
-      q: `${expectedLatitude},${expectedLongitude}`,
+      q: `${latitude},${longitude}`,
     };
     const weatherUrl = "/current.json";
 
     const expectedResponse = mockSuccessfulResponse;
-    const mockGetRaquest = jest.fn(
+    const mockGetRequest = jest.fn(
       () =>
         new Promise((resolve) => {
           resolve(expectedResponse);
         }),
     );
 
-    apiInstance.get.mockImplementation(mockGetRaquest);
+    apiInstance.get.mockImplementation(mockGetRequest);
 
     const result = await fetchWeather({
-      latitude: expectedLatitude,
-      longitude: expectedLongitude,
+      latitude,
+      longitude,
     });
 
     expect(apiInstance.get).toHaveBeenCalledTimes(1);
@@ -41,37 +41,35 @@ describe("fetchWeather", () => {
     expect(result).toEqual(mockSuccessResult);
   });
 
-  test("should fetch failed weather request", async () => {
-    const expectedLatitude = 57.141464;
-    const expectedLongitude = 65.576912;
+  test("should fetch failed weather request", () => {
+    const latitude = 57.141464;
+    const longitude = 65.576912;
 
     const params = {
       key: process.env.REACT_APP_WEATHER_API_KEY,
-      q: `${expectedLatitude},${expectedLongitude}`,
+      q: `${latitude},${longitude}`,
     };
     const weatherUrl = "/current.json";
 
     const expectedResponse = mockErrorResponse;
-    const mockGetRaquest = jest.fn(
+    const mockGetRequest = jest.fn(
       () =>
         new Promise((resolve) => {
           resolve(expectedResponse);
         }),
     );
 
-    apiInstance.get.mockImplementation(mockGetRaquest);
+    apiInstance.get.mockImplementation(mockGetRequest);
 
-    try {
-      const result = await fetchWeather({
-        latitude: expectedLatitude,
-        longitude: expectedLongitude,
+    const result = async () => {
+      await fetchWeather({
+        latitude,
+        longitude,
       });
+    };
 
-      expect(apiInstance.get).toHaveBeenCalledTimes(1);
-      expect(apiInstance.get).toHaveBeenCalledWith(weatherUrl, { params });
-    } catch (error) {
-      expect(error).toBeInstanceOf(Error);
-      expect(error.message).toEqual(mockErrorResult.error);
-    }
+    expect(result()).rejects.toThrow(new Error(expectedResponse.statusText));
+    expect(apiInstance.get).toHaveBeenCalledTimes(1);
+    expect(apiInstance.get).toHaveBeenCalledWith(weatherUrl, { params });
   });
 });
