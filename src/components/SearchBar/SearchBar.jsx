@@ -1,7 +1,7 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
+import { debounce } from "lodash";
 import AsyncSelect from "react-select/async";
-
 import fetchCities from "../../api/fetchCities";
 import { SearchDiv, SearchIconContainer, selectStyles } from "./styled";
 
@@ -22,12 +22,14 @@ const SearchBar = () => {
     }
   };
 
+  const debouncedLoadOptions = debounce(loadOptions, 500);
+
   return (
     <>
       <SearchDiv>
         <AsyncSelect
           placeholder="Search"
-          loadOptions={loadOptions}
+          loadOptions={debouncedLoadOptions}
           styles={selectStyles}
         />
         <SearchIconContainer>
