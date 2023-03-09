@@ -16,7 +16,9 @@ const fetchCities = async (string) => {
     value: `${name}, ${country}`,
   }));
 
-  return mappedData;
+  const preparedOptions = { options: mappedData };
+
+  return preparedOptions;
 };
 
 export default fetchCities;
