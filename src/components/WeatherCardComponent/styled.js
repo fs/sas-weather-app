@@ -18,11 +18,11 @@ const WeatherCard = styled.div(
   border-radius: 85px;
   color: ${theme.fontColor};
 
-  @media only screen and (max-width: 599px) {
+  @media only screen and (max-width: 649px) {
     background: none;
   }
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 650px) {
     margin: 110px 50px;
   }
 
