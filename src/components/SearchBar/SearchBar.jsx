@@ -12,21 +12,19 @@ const SearchBar = () => {
       try {
         const result = await fetchCities(inputValue);
         setError(null);
-        return result;
+        return { options: result };
       } catch (e) {
         setError(e);
-        return null;
       }
-    } else {
-      return { options: [] };
     }
+    return { options: [] };
   };
 
   return (
     <>
       <SearchDiv>
         <AsyncPaginate
-          debounceTimeout={500}
+          debounceTimeout={1000}
           placeholder="Search"
           loadOptions={loadOptions}
           styles={selectStyles}
