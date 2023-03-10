@@ -24,7 +24,7 @@ const SearchBar = () => {
     <>
       <SearchDiv>
         <AsyncPaginate
-          debounceTimeout={1000}
+          debounceTimeout={350}
           placeholder="Search"
           loadOptions={loadOptions}
           styles={selectStyles}
