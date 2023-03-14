@@ -1,8 +1,12 @@
 import { Search } from "react-bootstrap-icons";
 import { useState } from "react";
 import { AsyncPaginate } from "react-select-async-paginate";
-import fetchCities from "../../api/fetchCities";
-import { SearchDiv, SearchIconContainer, selectStyles } from "./styled";
+import fetchCities from "api/fetchCities";
+import {
+  SearchDiv,
+  SearchIconContainer,
+  selectStyles,
+} from "components/SearchBar/styled";
 
 const SearchBar = () => {
   const [error, setError] = useState(null);

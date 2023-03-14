@@ -1,8 +1,8 @@
 /* eslint-disable react/self-closing-comp */
-import SearchBar from "../SearchBar";
-import IconComponent from "../IconComponent";
-import WeatherCard from "./styled";
-import WeatherTextBoxComponent from "../WeatherTextBoxComponent";
+import IconComponent from "components/IconComponent";
+import SearchBar from "components/SearchBar";
+import WeatherCard from "components/WeatherCardComponent/styled";
+import WeatherTextBoxComponent from "components/WeatherTextBoxComponent";
 
 const WeatherCardComponent = ({ weatherData }) => {
   return (

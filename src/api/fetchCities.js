@@ -1,4 +1,4 @@
-import apiInstance from "./apiInstance";
+import apiInstance from "api/apiInstance";
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 

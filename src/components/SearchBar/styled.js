@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { rgba } from "polished";
 
-import { commonStyles } from "../../global/themes";
+import { commonStyles } from "global/themes";
 
 const SearchDiv = styled.div`
   position: relative;

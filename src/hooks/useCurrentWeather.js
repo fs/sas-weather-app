@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import fetchWeather from "../api/fetchWeather";
+import fetchWeather from "api/fetchWeather";
 
 const initData = {
   country: null,
