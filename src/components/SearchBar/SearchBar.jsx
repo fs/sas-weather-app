@@ -4,7 +4,7 @@ import { AsyncPaginate } from "react-select-async-paginate";
 import fetchCities from "../../api/fetchCities";
 import { SearchDiv, SearchIconContainer, selectStyles } from "./styled";
 
-const SearchBar = () => {
+const SearchBar = ({ setCity }) => {
   const [error, setError] = useState(null);
 
   const loadOptions = async (inputValue) => {
@@ -20,6 +20,10 @@ const SearchBar = () => {
     return { options: [] };
   };
 
+  const onInputChange = (input) => {
+    setCity(input.value);
+  };
+
   return (
     <>
       <SearchDiv>
@@ -28,6 +32,7 @@ const SearchBar = () => {
           placeholder="Search"
           loadOptions={loadOptions}
           styles={selectStyles}
+          onChange={onInputChange}
         />
         <SearchIconContainer>
           <Search width={20} height={20} />

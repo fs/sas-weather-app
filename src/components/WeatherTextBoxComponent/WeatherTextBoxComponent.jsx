@@ -1,17 +1,11 @@
-import { useContext } from "react";
-import LocationContext from "../../context";
 import {
   WeatherBigText,
   WeatherInfo,
   WeatherTextBox,
   WeatherSmallText,
 } from "./styled";
-import useCurrentWeather from "../../hooks/useCurrentWeather";
 
-const WeatherTextBoxComponent = () => {
-  const { latitude, longitude } = useContext(LocationContext);
-  const { weatherData, status, error } = useCurrentWeather(latitude, longitude);
-
+const WeatherTextBoxComponent = ({ weatherData, status, error }) => {
   return (
     <WeatherInfo>
       {status === "error" && (
