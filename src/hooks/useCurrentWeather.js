@@ -18,28 +18,7 @@ const useCurrentWeather = ({ latitude, longitude, city }) => {
   });
 
   useEffect(() => {
-    if (city) {
-      const getWeather = async () => {
-        try {
-          setWeatherData({
-            status: "loading",
-            weatherData: initData,
-            error: null,
-          });
-
-          const response = await fetchWeather({ latitude, longitude, city });
-          setWeatherData(response);
-        } catch (error) {
-          setWeatherData({
-            status: "error",
-            weatherData: initData,
-            error: error.message,
-          });
-        }
-      };
-
-      getWeather();
-    } else if (latitude && longitude) {
+    if (latitude && longitude) {
       const getWeather = async () => {
         try {
           setWeatherData({
