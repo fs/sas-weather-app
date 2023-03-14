@@ -2,4 +2,6 @@ import { createContext } from "react";
 
 const LocationContext = createContext();
 
-export default LocationContext;
+const CityContext = createContext();
+
+export { LocationContext, CityContext };
