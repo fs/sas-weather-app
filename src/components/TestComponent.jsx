@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { TestDiv } from "./TestComponent/styled";
-import fetchWeather from "../api/fetchWeather";
+import fetchWeather from "api/fetchWeather";
+import { TestDiv } from "components/TestComponent/styled";
 
 const TestComponent = () => {
   const [weather, setWeather] = useState({});

@@ -1,6 +1,6 @@
-import LocationContext from "./context";
-import useGeolocation from "./hooks/useGeolocation";
-import BackComponent from "./components/BackComponent/index";
+import LocationContext from "context";
+import useGeolocation from "hooks/useGeolocation";
+import BackComponent from "components/BackComponent/index";
 
 const App = () => {
   const location = useGeolocation();
