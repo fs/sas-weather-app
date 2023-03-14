@@ -4,7 +4,7 @@ const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
 const weatherUrl = "/current.json";
 
-const fetchWeather = async ({ longitude, latitude, city }) => {
+const fetchWeather = async ({ latitude, longitude, city }) => {
   const params = {
     key: apiKey,
   };
@@ -12,7 +12,7 @@ const fetchWeather = async ({ longitude, latitude, city }) => {
   if (city) {
     params.q = city;
   } else {
-    params.q = `${longitude},${latitude}`;
+    params.q = `${latitude},${longitude}`;
   }
 
   const response = await apiInstance.get(weatherUrl, { params });
