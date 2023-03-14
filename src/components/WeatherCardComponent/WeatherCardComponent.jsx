@@ -5,7 +5,7 @@ import IconComponent from "../IconComponent";
 import WeatherCard from "./styled";
 import WeatherTextBoxComponent from "../WeatherTextBoxComponent";
 import useCurrentWeather from "../../hooks/useCurrentWeather";
-import { LocationContext } from "../../context";
+import LocationContext from "../../context";
 
 const WeatherCardComponent = () => {
   const [city, setCity] = useState();
