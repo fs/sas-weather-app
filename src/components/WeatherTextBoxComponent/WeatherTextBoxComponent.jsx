@@ -9,7 +9,11 @@ import {
 } from "components/WeatherTextBoxComponent/styled";
 
 const WeatherTextBoxComponent = () => {
-  const { latitude, longitude } = useContext(LocationContext);
+  const {
+    latitude,
+    longitude,
+    error: locationError,
+  } = useContext(LocationContext);
   const { weatherData, status, error } = useCurrentWeather(latitude, longitude);
 
   return (
@@ -17,6 +21,15 @@ const WeatherTextBoxComponent = () => {
       {status === "error" && (
         <WeatherTextBox>
           <WeatherBigText>{error}</WeatherBigText>
+        </WeatherTextBox>
+      )}
+
+      {locationError === "User denied Geolocation" && (
+        <WeatherTextBox>
+          <WeatherBigText>
+            Для работы приложения нужно разрешить геолокацию. Это можно сделать
+            в настройках браузера.
+          </WeatherBigText>
         </WeatherTextBox>
       )}
       {status === "loading" && (
