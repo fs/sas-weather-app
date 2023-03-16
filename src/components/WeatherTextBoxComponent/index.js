@@ -1,3 +1,3 @@
-import WeatherTextBoxComponent from "./WeatherTextBoxComponent";
+import WeatherTextBoxComponent from "components/WeatherTextBoxComponent/WeatherTextBoxComponent";
 
 export default WeatherTextBoxComponent;
