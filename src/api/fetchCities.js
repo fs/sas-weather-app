@@ -9,9 +9,14 @@ const fetchCities = async (string) => {
     key: apiKey,
     q: string,
   };
-  const data = await apiInstance.get(searchUrl, { params });
 
-  const mappedData = data.data.map(({ name, country }) => ({
+  const response = await apiInstance.get(searchUrl, { params });
+
+  if (response.status !== 200) {
+    throw new Error(response.statusText);
+  }
+
+  const mappedData = response.data.map(({ name, country }) => ({
     label: `${name}, ${country}`,
     value: `${name}, ${country}`,
   }));
