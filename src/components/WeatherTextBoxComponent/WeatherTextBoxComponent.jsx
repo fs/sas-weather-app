@@ -27,14 +27,14 @@ const WeatherTextBoxComponent = () => {
       {locationError === "User denied Geolocation" && (
         <WeatherTextBox>
           <WeatherBigText>
-            Для работы приложения нужно разрешить геолокацию. Это можно сделать
-            в настройках браузера.
+            This app requires geolocation access to work. Please grant this site
+            geolocation permissions in your browser&apos;s settings.
           </WeatherBigText>
         </WeatherTextBox>
       )}
       {status === "loading" && (
         <WeatherTextBox>
-          <WeatherBigText>Загрузка погоды</WeatherBigText>
+          <WeatherBigText>Loading weather data, please wait</WeatherBigText>
         </WeatherTextBox>
       )}
       {status === "success" && (
