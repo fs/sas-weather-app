@@ -1,9 +1,9 @@
 /* eslint-disable react/self-closing-comp */
 import { useContext, useState } from "react";
-import SearchBar from "../SearchBar";
-import IconComponent from "../IconComponent";
-import WeatherCard from "./styled";
-import WeatherTextBoxComponent from "../WeatherTextBoxComponent";
+import IconComponent from "components/IconComponent";
+import SearchBar from "components/SearchBar";
+import WeatherCard from "components/WeatherCardComponent/styled";
+import WeatherTextBoxComponent from "components/WeatherTextBoxComponent";
 import useCurrentWeather from "../../hooks/useCurrentWeather";
 import LocationContext from "../../context";
 

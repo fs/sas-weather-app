@@ -3,7 +3,7 @@ import {
   WeatherInfo,
   WeatherTextBox,
   WeatherSmallText,
-} from "./styled";
+} from "components/WeatherTextBoxComponent/styled";
 
 const WeatherTextBoxComponent = ({ weatherData, status, error }) => {
   return (
