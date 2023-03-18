@@ -8,31 +8,43 @@ import {
   WeatherSmallText,
 } from "components/WeatherTextBoxComponent/styled";
 import {
+  sunnyTheme,
   cloudyTheme,
   commonStyles,
   rainyTheme,
   snowyTheme,
   thunderTheme,
+  defaultTheme,
 } from "global/themes";
 
 const WeatherTextBoxComponent = ({ handleChange }) => {
   const { latitude, longitude } = useContext(LocationContext);
   const { weatherData, status, error } = useCurrentWeather(latitude, longitude);
 
-  useEffect(() => {
-    if (weatherData.condition) {
-      const weatherText = weatherData.condition;
+  const getTheme = (code) => {
+    const themes = [
+      {
+        codes: [1063, 1180, 1183, 1186, 1189, 1192, 1195, 1198, 1201],
+        name: rainyTheme,
+      },
+      { codes: [1000], name: sunnyTheme },
+      { codes: [1003, 1006], name: cloudyTheme },
+      { codes: [1087, 1273, 1276, 1279, 1282], name: thunderTheme },
+      {
+        codes: [1066, 1114, 1204, 1207, 1210, 1213, 1216, 1219, 1222, 1225],
+        name: snowyTheme,
+      },
+    ];
 
-      if (weatherText.includes("snow")) {
-        handleChange({ ...snowyTheme, ...commonStyles });
-      } else if (weatherText.includes("rain")) {
-        handleChange({ ...rainyTheme, ...commonStyles });
-      } else if (weatherText.includes("thunder")) {
-        handleChange({ ...thunderTheme, ...commonStyles });
-      } else if (weatherText.includes("cloud")) {
-        handleChange({ ...cloudyTheme, ...commonStyles });
-      }
-    }
+    const theme = themes.find((element) => element.codes.includes(code));
+    return theme ? theme.name : defaultTheme;
+  };
+
+  useEffect(() => {
+    const weatherCode = weatherData.conditionCode;
+    const chosenTheme = getTheme(weatherCode);
+
+    handleChange({ ...chosenTheme, ...commonStyles });
   }, [weatherData]);
 
   return (

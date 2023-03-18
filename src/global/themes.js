@@ -28,6 +28,11 @@ const nightTheme = {
   fontColor: "#F2FBFFB2",
 };
 
+const defaultTheme = {
+  backgroundColor: "#ACBCBD",
+  fontColor: "#F2FBFFB2",
+};
+
 const commonStyles = {
   bgWhite: "#EFFFFD",
   bgSearch: "#F2FBFF",
@@ -43,4 +48,5 @@ export {
   cloudyTheme,
   nightTheme,
   commonStyles,
+  defaultTheme,
 };

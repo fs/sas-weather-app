@@ -24,6 +24,7 @@ const fetchWeather = async ({ latitude, longitude } = {}) => {
       city: response.data.location.name,
       tempC: response.data.current.temp_c,
       condition: response.data.current.condition.text,
+      conditionCode: response.data.current.condition.code,
       humidity: response.data.current.humidity,
       windKph: response.data.current.wind_kph,
     },
