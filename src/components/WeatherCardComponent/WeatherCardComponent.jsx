@@ -4,11 +4,11 @@ import SearchBar from "components/SearchBar";
 import WeatherCard from "components/WeatherCardComponent/styled";
 import WeatherTextBoxComponent from "components/WeatherTextBoxComponent";
 
-const WeatherCardComponent = ({ weatherData }) => {
+const WeatherCardComponent = ({ handleChange }) => {
   return (
     <WeatherCard>
       <SearchBar />
-      <WeatherTextBoxComponent weatherData={weatherData} />
+      <WeatherTextBoxComponent handleChange={handleChange} />
       <IconComponent />
     </WeatherCard>
   );

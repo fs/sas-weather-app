@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import LocationContext from "context";
 import useCurrentWeather from "hooks/useCurrentWeather";
 import {
@@ -7,10 +7,33 @@ import {
   WeatherTextBox,
   WeatherSmallText,
 } from "components/WeatherTextBoxComponent/styled";
+import {
+  cloudyTheme,
+  commonStyles,
+  rainyTheme,
+  snowyTheme,
+  thunderTheme,
+} from "global/themes";
 
-const WeatherTextBoxComponent = () => {
+const WeatherTextBoxComponent = ({ handleChange }) => {
   const { latitude, longitude } = useContext(LocationContext);
   const { weatherData, status, error } = useCurrentWeather(latitude, longitude);
+
+  useEffect(() => {
+    if (weatherData.condition) {
+      const weatherText = weatherData.condition;
+
+      if (weatherText.includes("snow")) {
+        handleChange({ ...snowyTheme, ...commonStyles });
+      } else if (weatherText.includes("rain")) {
+        handleChange({ ...rainyTheme, ...commonStyles });
+      } else if (weatherText.includes("thunder")) {
+        handleChange({ ...thunderTheme, ...commonStyles });
+      } else if (weatherText.includes("cloud")) {
+        handleChange({ ...cloudyTheme, ...commonStyles });
+      }
+    }
+  }, [weatherData]);
 
   return (
     <WeatherInfo>
