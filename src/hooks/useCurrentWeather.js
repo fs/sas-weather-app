@@ -8,6 +8,7 @@ const initData = {
   condition: null,
   humidity: null,
   windKph: null,
+  conditionCode: null,
 };
 
 const useCurrentWeather = (latitude, longitude) => {

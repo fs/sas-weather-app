@@ -11,8 +11,6 @@ const BackComponent = () => {
   });
 
   const handleChange = (newTheme) => {
-    // eslint-disable-next-line no-console
-    console.log(newTheme);
     setTheme(newTheme);
   };
 
