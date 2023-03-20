@@ -18,7 +18,7 @@ const useCurrentWeather = ({ latitude, longitude, city }) => {
   });
 
   useEffect(() => {
-    if (latitude && longitude) {
+    if ((latitude && longitude) || city) {
       const getWeather = async () => {
         try {
           setWeatherData({
