@@ -39,6 +39,12 @@ const useCurrentWeather = ({ latitude, longitude, city }) => {
       };
 
       getWeather();
+    } else {
+      setWeatherData({
+        status: "error",
+        weatherData: initData,
+        error: "Геолокация недоступна",
+      });
     }
   }, [latitude, longitude, city]);
 
