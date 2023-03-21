@@ -53,6 +53,7 @@ const mockSuccessResult = {
     condition: mockSuccessfulResponse.data.current.condition.text,
     humidity: mockSuccessfulResponse.data.current.humidity,
     windKph: mockSuccessfulResponse.data.current.wind_kph,
+    conditionCode: mockSuccessfulResponse.data.current.condition.code,
   },
 };
 
@@ -70,6 +71,7 @@ const mockErrorResult = {
     condition: null,
     humidity: null,
     windKph: null,
+    conditionCode: null,
   },
   error: mockErrorResponse.statusText,
 };

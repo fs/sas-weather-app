@@ -20,7 +20,7 @@ const WeatherTextBoxComponent = ({
         </WeatherTextBox>
       )}
 
-      {locationError === "User denied Geolocation" && (
+      {locationError === "User denied Geolocation" && status === "error" && (
         <WeatherTextBox>
           <WeatherBigText>
             This app requires geolocation access to work. Please grant this site

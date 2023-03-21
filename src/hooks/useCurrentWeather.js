@@ -8,6 +8,7 @@ const initData = {
   condition: null,
   humidity: null,
   windKph: null,
+  conditionCode: null,
 };
 
 const useCurrentWeather = ({ latitude, longitude, city }) => {
@@ -43,7 +44,7 @@ const useCurrentWeather = ({ latitude, longitude, city }) => {
       setWeatherData({
         status: "error",
         weatherData: initData,
-        error: "Геолокация недоступна",
+        error: "Geolocation is unavailable",
       });
     }
   }, [latitude, longitude, city]);

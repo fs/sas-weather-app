@@ -1,16 +1,23 @@
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import WeatherCardComponent from "components/WeatherCardComponent";
-import { rainyTheme, commonStyles } from "global/themes";
+import { sunnyTheme, commonStyles } from "global/themes";
 import BackgroundColor from "components/BackComponent/styled";
 
 const BackComponent = () => {
-  const [theme] = useState({ ...rainyTheme, ...commonStyles });
+  const [theme, setTheme] = useState({
+    ...sunnyTheme,
+    ...commonStyles,
+  });
+
+  const handleChange = (newTheme) => {
+    setTheme(newTheme);
+  };
 
   return (
     <ThemeProvider theme={theme}>
       <BackgroundColor>
-        <WeatherCardComponent />
+        <WeatherCardComponent handleChange={handleChange} />
       </BackgroundColor>
     </ThemeProvider>
   );
