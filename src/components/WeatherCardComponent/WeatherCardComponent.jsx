@@ -9,7 +9,11 @@ import LocationContext from "../../context";
 
 const WeatherCardComponent = () => {
   const [city, setCity] = useState();
-  const { latitude, longitude } = useContext(LocationContext);
+  const {
+    latitude,
+    longitude,
+    error: locationError,
+  } = useContext(LocationContext);
 
   const { weatherData, status, error } = useCurrentWeather({
     latitude,
@@ -24,6 +28,7 @@ const WeatherCardComponent = () => {
         weatherData={weatherData}
         status={status}
         error={error}
+        locationError={locationError}
       />
       <IconComponent />
     </WeatherCard>

@@ -5,7 +5,13 @@ import {
   WeatherSmallText,
 } from "components/WeatherTextBoxComponent/styled";
 
-const WeatherTextBoxComponent = ({ weatherData, status, error }) => {
+const WeatherTextBoxComponent = ({
+  weatherData,
+  status,
+  error,
+  locationError,
+}) => {
+  const { country, city, tempC, condition, humidity, windKph } = weatherData;
   return (
     <WeatherInfo>
       {status === "error" && (
@@ -13,27 +19,32 @@ const WeatherTextBoxComponent = ({ weatherData, status, error }) => {
           <WeatherBigText>{error}</WeatherBigText>
         </WeatherTextBox>
       )}
+
+      {locationError === "User denied Geolocation" && (
+        <WeatherTextBox>
+          <WeatherBigText>
+            This app requires geolocation access to work. Please grant this site
+            geolocation permissions in your browser&apos;s settings.
+          </WeatherBigText>
+        </WeatherTextBox>
+      )}
       {status === "loading" && (
         <WeatherTextBox>
-          <WeatherBigText>Загрузка погоды</WeatherBigText>
+          <WeatherBigText>Loading weather data, please wait</WeatherBigText>
         </WeatherTextBox>
       )}
       {status === "success" && (
         <>
           <WeatherTextBox>
             <WeatherBigText>
-              {weatherData.country}, {weatherData.city}
+              {country}, {city}
             </WeatherBigText>
-            <WeatherBigText>{weatherData.tempC}°C</WeatherBigText>
-            <WeatherBigText>{weatherData.condition}</WeatherBigText>
+            <WeatherBigText>{tempC}°C</WeatherBigText>
+            <WeatherBigText>{condition}</WeatherBigText>
           </WeatherTextBox>
           <WeatherTextBox>
-            <WeatherSmallText>
-              Humidity: {weatherData.humidity}%
-            </WeatherSmallText>
-            <WeatherSmallText>
-              Wind Speed: {weatherData.windKph} km/h
-            </WeatherSmallText>
+            <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
+            <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
           </WeatherTextBox>
         </>
       )}
