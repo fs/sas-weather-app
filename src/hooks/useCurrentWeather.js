@@ -11,7 +11,7 @@ const initData = {
   conditionCode: null,
 };
 
-const useCurrentWeather = (latitude, longitude) => {
+const useCurrentWeather = ({ latitude, longitude, city }) => {
   const [weatherData, setWeatherData] = useState({
     status: "init",
     weatherData: initData,
@@ -19,7 +19,7 @@ const useCurrentWeather = (latitude, longitude) => {
   });
 
   useEffect(() => {
-    if (latitude && longitude) {
+    if ((latitude && longitude) || city) {
       const getWeather = async () => {
         try {
           setWeatherData({
@@ -28,20 +28,26 @@ const useCurrentWeather = (latitude, longitude) => {
             error: null,
           });
 
-          const response = await fetchWeather({ latitude, longitude });
+          const response = await fetchWeather({ latitude, longitude, city });
           setWeatherData(response);
         } catch (error) {
           setWeatherData({
             status: "error",
             weatherData: initData,
-            error,
+            error: error.message,
           });
         }
       };
 
       getWeather();
+    } else {
+      setWeatherData({
+        status: "error",
+        weatherData: initData,
+        error: "Geolocation is unavailable",
+      });
     }
-  }, [latitude, longitude]);
+  }, [latitude, longitude, city]);
 
   return weatherData;
 };

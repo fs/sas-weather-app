@@ -4,7 +4,6 @@ import BackComponent from "components/BackComponent/index";
 
 const App = () => {
   const location = useGeolocation();
-
   // eslint-disable-next-line no-console
   console.log("🚀 ~ file: App.jsx:7 ~ App ~ location:", location);
   return (
