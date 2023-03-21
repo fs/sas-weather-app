@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import LocationContext from "context";
-import useCurrentWeather from "hooks/useCurrentWeather";
 import {
   WeatherBigText,
   WeatherInfo,
@@ -8,14 +5,13 @@ import {
   WeatherSmallText,
 } from "components/WeatherTextBoxComponent/styled";
 
-const WeatherTextBoxComponent = () => {
-  const {
-    latitude,
-    longitude,
-    error: locationError,
-  } = useContext(LocationContext);
-  const { weatherData, status, error } = useCurrentWeather(latitude, longitude);
-
+const WeatherTextBoxComponent = ({
+  weatherData,
+  status,
+  error,
+  locationError,
+}) => {
+  const { country, city, tempC, condition, humidity, windKph } = weatherData;
   return (
     <WeatherInfo>
       {status === "error" && (
@@ -41,18 +37,14 @@ const WeatherTextBoxComponent = () => {
         <>
           <WeatherTextBox>
             <WeatherBigText>
-              {weatherData.country}, {weatherData.city}
+              {country}, {city}
             </WeatherBigText>
-            <WeatherBigText>{weatherData.tempC}°C</WeatherBigText>
-            <WeatherBigText>{weatherData.condition}</WeatherBigText>
+            <WeatherBigText>{tempC}°C</WeatherBigText>
+            <WeatherBigText>{condition}</WeatherBigText>
           </WeatherTextBox>
           <WeatherTextBox>
-            <WeatherSmallText>
-              Humidity: {weatherData.humidity}%
-            </WeatherSmallText>
-            <WeatherSmallText>
-              Wind Speed: {weatherData.windKph} km/h
-            </WeatherSmallText>
+            <WeatherSmallText>Humidity: {humidity}%</WeatherSmallText>
+            <WeatherSmallText>Wind Speed: {windKph} km/h</WeatherSmallText>
           </WeatherTextBox>
         </>
       )}
