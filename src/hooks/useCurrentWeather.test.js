@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { act, renderHook } from "@testing-library/react";
-import { mockSuccessResult } from "__mocks__/mockCities";
+import { mockSuccessResult } from "__mocks__/mockWeather";
 import fetchWeather from "api/fetchWeather";
 import useCurrentWeather from "./useCurrentWeather";
 
@@ -28,7 +28,9 @@ describe("useCurrentWeather", () => {
 
     fetchWeather.mockImplementation(mockFetchWeather);
 
-    const { result } = renderHook(() => useCurrentWeather(latitude, longitude));
+    const { result } = renderHook(() =>
+      useCurrentWeather({ latitude, longitude }),
+    );
     await act(async () => {
       await mockFetchWeather;
     });
