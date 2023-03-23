@@ -76,9 +76,36 @@ const mockErrorResult = {
   error: mockErrorResponse.statusText,
 };
 
+const initData = {
+  country: null,
+  city: null,
+  tempC: null,
+  conditionCode: null,
+  condition: null,
+  humidity: null,
+  windKph: null,
+};
+
+const mockGeolocationErrorResult = {
+  status: "error",
+  weatherData: initData,
+  error: "Geolocation is unavailable",
+};
+
+const mockFetchErrorResult = {
+  status: "error",
+  weatherData: initData,
+  error: mockErrorResponse.statusText,
+};
+
+const mockFetchErrorResponse = new Error(mockErrorResponse.statusText);
+
 export {
   mockSuccessfulResponse,
   mockSuccessResult,
   mockErrorResponse,
   mockErrorResult,
+  mockGeolocationErrorResult,
+  mockFetchErrorResult,
+  mockFetchErrorResponse,
 };
